@@ -94,7 +94,7 @@ export function PackageCatalog() {
                   setVisible(PAGE_SIZE);
                 }}
                 className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
-                  type === t ? "bg-coral-deep text-white" : "bg-blush text-ink hover:bg-coral/25"
+                  type === t ? "bg-brand text-white" : "bg-lilac text-ink hover:bg-brand-light/20"
                 }`}
               >
                 {t === "all" ? "All styles" : DECOR_TYPES[t]}
@@ -147,7 +147,7 @@ function PackageCard({ pkg, eager }: { pkg: Package; eager: boolean }) {
 
   return (
     <li className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-ink/5 transition-shadow hover:shadow-lg">
-      <div className="relative aspect-[4/5] overflow-hidden bg-blush">
+      <div className="relative aspect-[4/5] overflow-hidden bg-lilac">
         <Image
           src={pkg.image}
           alt={`${pkg.title} — ${occasionLabel.toLowerCase()} balloon decoration${pkg.price ? `, ${priceText}` : ""}`}
@@ -162,7 +162,7 @@ function PackageCard({ pkg, eager }: { pkg: Package; eager: boolean }) {
       </div>
       <div className="flex flex-1 flex-col p-3 sm:p-4">
         <h3 className="text-sm leading-snug font-semibold text-ink sm:text-base">{pkg.title}</h3>
-        <p className={`mt-1 font-display font-semibold ${pkg.price ? "text-xl text-coral-deep" : "text-base text-ink-soft"}`}>
+        <p className={`mt-1 font-display font-semibold ${pkg.price ? "text-xl text-brand" : "text-base text-ink-soft"}`}>
           {priceText}
         </p>
         <div className="mt-auto grid gap-2 pt-3 sm:grid-cols-2">

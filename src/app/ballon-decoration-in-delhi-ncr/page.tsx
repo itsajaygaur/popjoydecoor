@@ -119,7 +119,7 @@ export default function BalloonDecorationPage() {
         <Testimonials />
         <ServiceAreas />
 
-        <section id="book" aria-labelledby="book-title" className="bg-blush py-16 sm:py-20">
+        <section id="book" aria-labelledby="book-title" className="bg-lilac py-16 sm:py-20">
           <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[1fr_1.4fr]">
             <div>
               <p className={eyebrow}>Book an appointment</p>
