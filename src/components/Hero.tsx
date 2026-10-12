@@ -33,14 +33,14 @@ export function Hero() {
           </p>
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            <a href="#packages" className={`${btn.base} ${btn.primary} ${btn.lg}`}>
+            <a href="#packages" className={`${btn.base} ${btn.primary} ${btn.lg} w-full sm:w-auto`}>
               View packages
             </a>
             <a
               href={whatsappLink("Hi, I'd like to book a balloon decoration.")}
               target="_blank"
               rel="noopener"
-              className={`${btn.base} ${btn.whatsapp} ${btn.lg}`}
+              className={`${btn.base} ${btn.whatsapp} ${btn.lg} w-full sm:w-auto`}
             >
               <WhatsAppIcon />
               Book on WhatsApp

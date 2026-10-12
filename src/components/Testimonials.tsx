@@ -10,7 +10,7 @@ export function Testimonials() {
         <h2 id="reviews-title" className={`${sectionTitle} mt-2`}>
           Loved by 10,000+ families across Delhi NCR
         </h2>
-        <ul className="no-scrollbar -mx-4 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
+        <ul className="no-scrollbar -mx-4 mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 py-2 md:mx-0 md:mt-8 md:py-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
           {REVIEWS.map((r) => (
             <li
               key={r.name}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BookingForm } from "@/components/BookingForm";
 import { BookingSteps } from "@/components/BookingSteps";
+import { CallFab } from "@/components/CallFab";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -154,6 +155,7 @@ export default function BalloonDecorationPage() {
       </main>
       <Footer />
       <StickyCtaBar />
+      <CallFab />
     </>
   );
 }
