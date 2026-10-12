@@ -18,10 +18,10 @@ export function Header() {
           <a href="#faq" className="hover:text-ink">FAQ</a>
         </nav>
         <div className="flex items-center gap-2">
-          <a href={SITE.phoneHref} className={`${btn.base} ${btn.ghost} ${btn.sm} sm:px-4`}>
+          {/* On phones the floating call button covers this. */}
+          <a href={SITE.phoneHref} className={`${btn.base} ${btn.ghost} ${btn.sm} max-sm:hidden sm:px-4`}>
             <PhoneIcon className="size-4" />
-            <span className="hidden sm:inline">{SITE.phoneDisplay}</span>
-            <span className="sm:hidden">Call</span>
+            {SITE.phoneDisplay}
           </a>
           <a
             href={whatsappLink("Hi, I'd like to book a balloon decoration.")}

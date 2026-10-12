@@ -58,7 +58,7 @@ export function PackageCatalog() {
 
   return (
     <div>
-      <div role="tablist" aria-label="Occasion" className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1">
+      <div role="tablist" aria-label="Occasion" className="no-scrollbar -mx-4 -my-2 flex gap-2 overflow-x-auto px-4 py-2">
         {OCCASIONS.map((o) => {
           const active = o.id === occasion;
           const count = PACKAGES.filter((p) => p.occasion === o.id).length;
