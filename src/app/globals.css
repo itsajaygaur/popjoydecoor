@@ -28,7 +28,7 @@ html {
 }
 
 body {
-  background: var(--color-cream);
+  background: #fff;
   color: var(--color-ink);
 }
 
