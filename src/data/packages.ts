@@ -78,7 +78,7 @@ export const PACKAGES: Package[] = [
   { id: "anniversary-panel-golden-stage", occasion: "anniversary", type: "panel", title: "Golden Years Stage Setup", price: 14599, image: "/images/packages/anniversary/panel-golden-stage.webp", width: 401, height: 621 },
   { id: "anniversary-backdrop-red-arch", occasion: "anniversary", type: "flex", title: "Red Arch Backdrop", price: null, image: "/images/packages/anniversary/backdrop-red-arch.webp", width: 401, height: 621 },
   { id: "anniversary-backdrop-white-silver", occasion: "anniversary", type: "flex", title: "White & Silver Arch Backdrop", price: null, image: "/images/packages/anniversary/backdrop-white-silver.webp", width: 401, height: 621 },
-  { id: "anniversary-room-balloons", occasion: "anniversary", type: "wall", title: "Room Balloon Decoration", price: 1599, image: "/images/packages/anniversary/room-balloons.webp", width: 401, height: 621 },
+  { id: "anniversary-room-balloons", occasion: "anniversary", type: "wall", title: "Room Balloon Decoration", price: 1999, image: "/images/packages/anniversary/room-balloons.webp", width: 401, height: 621 },
   { id: "anniversary-wall-red-lights", occasion: "anniversary", type: "wall", title: "Red Fairy-Light Wall", price: 1999, image: "/images/packages/anniversary/wall-red-lights.webp", width: 401, height: 621 },
   { id: "baby-shower-ring-pastel-teddy", occasion: "baby-shower", type: "ring", title: "Pastel Ring with Teddy", price: 3999, image: "/images/packages/baby-shower/ring-pastel-teddy.webp", width: 1024, height: 1024 },
   { id: "baby-shower-ring-lilac-white", occasion: "baby-shower", type: "ring", title: "Lilac & White Ring", price: 3999, image: "/images/packages/baby-shower/ring-lilac-white.webp", width: 1024, height: 1024 },

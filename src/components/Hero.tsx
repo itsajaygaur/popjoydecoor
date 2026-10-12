@@ -2,7 +2,7 @@ import Image from "next/image";
 import { PACKAGES, STARTING_PRICE, formatPrice } from "@/data/packages";
 import { SITE } from "@/lib/site";
 import { whatsappLink } from "@/lib/whatsapp";
-import { StarIcon, WhatsAppIcon } from "./icons";
+import { WhatsAppIcon } from "./icons";
 import { btn } from "./ui";
 
 const heroIds = ["birthday-ring-chrome-marquee", "anniversary-ring-orange-gold", "birthday-backdrop-gold-purple"];
@@ -10,20 +10,10 @@ const heroImages = heroIds.map((id) => PACKAGES.find((p) => p.id === id)!);
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-24 size-80 rounded-full bg-accent/20 blur-3xl" />
-      <div aria-hidden="true" className="pointer-events-none absolute top-40 -left-32 size-72 rounded-full bg-brand-light/15 blur-3xl" />
-
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 pt-10 pb-14 md:grid-cols-[1.05fr_1fr] md:pt-16 md:pb-20">
+    <section id="top">
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pt-10 pb-14 md:grid-cols-[1.05fr_1fr] md:pt-16 md:pb-20">
         <div>
-          <p className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-ink-soft shadow-sm ring-1 ring-ink/5">
-            <span className="flex text-accent">
-              {Array.from({ length: 5 }, (_, i) => <StarIcon key={i} className="size-3.5" />)}
-            </span>
-            4.7+ Google rating · 10,000+ happy customers
-          </p>
-
-          <h1 className="mt-5 font-display text-[2.6rem] leading-[1.05] font-semibold tracking-tight text-ink sm:text-6xl">
+          <h1 className="font-display text-[2.6rem] leading-[1.05] font-semibold tracking-tight text-ink sm:text-6xl">
             <span className="italic text-brand">Balloon Decoration</span> in Delhi NCR
           </h1>
 
@@ -53,7 +43,7 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="relative mx-auto grid w-full max-w-md grid-cols-[1.15fr_1fr] gap-3 md:max-w-none">
+        <div className="mx-auto grid w-full max-w-md grid-cols-[1.15fr_1fr] gap-3 md:max-w-none">
           <div className="row-span-2 overflow-hidden rounded-[2rem] shadow-xl shadow-ink/10 ring-4 ring-white">
             <Image
               src={heroImages[0].image}
@@ -77,10 +67,6 @@ export function Hero() {
               />
             </div>
           ))}
-          <div className="absolute -bottom-4 left-4 rounded-2xl bg-white px-4 py-3 shadow-lg ring-1 ring-ink/5">
-            <p className="text-xs font-medium text-ink-soft">Packages from</p>
-            <p className="font-display text-2xl font-semibold text-brand">{formatPrice(STARTING_PRICE)}</p>
-          </div>
         </div>
       </div>
     </section>
