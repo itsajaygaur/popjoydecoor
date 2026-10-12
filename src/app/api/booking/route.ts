@@ -35,7 +35,6 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         ...booking,
         secret: process.env.BOOKING_WEBHOOK_SECRET ?? "",
-        submittedAt: new Date().toISOString(),
         source: "ballon-decoration-in-delhi-ncr",
       }),
       signal: AbortSignal.timeout(10_000),
