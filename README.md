@@ -30,12 +30,20 @@ The form posts to `/api/booking`, which forwards to a Google Apps Script web app
 your Sheet. After submitting, the customer is offered "Continue on WhatsApp" with their details pre-filled.
 If the webhook isn't configured or fails, the form falls back to WhatsApp, so no lead is lost.
 
+Rows go to the first tab of the
+[bookings sheet](https://docs.google.com/spreadsheets/d/1j13YCBZhYIhv24o5cVxQIwFUs6ewaazlkHpiRGfysyc/edit)
+(`SPREADSHEET_ID` / `SHEET_GID` in the script). On an empty tab the script writes a header row first; after
+that it fills columns by header name, so you can reorder them or add your own (e.g. "Status").
+
 1. Open the bookings Google Sheet → **Extensions → Apps Script**, paste `scripts/google-apps-script.gs`.
 2. Set `SECRET` in the script to a long random string.
 3. **Deploy → New deployment → Web app**. Execute as *Me*, access *Anyone*. Copy the URL.
 4. In Vercel → Project → Settings → Environment Variables set `BOOKING_WEBHOOK_URL` (the URL) and
    `BOOKING_WEBHOOK_SECRET` (same secret). See `.env.example`.
 5. Redeploy and submit a test booking.
+
+If you edit the script later, publish it via **Deploy → Manage deployments → Edit → New version**;
+saving alone doesn't change what the web app runs.
 
 ## ⚠️ Before pointing popjoydecoor.in at Vercel
 
