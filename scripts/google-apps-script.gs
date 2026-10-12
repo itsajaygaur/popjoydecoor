@@ -21,18 +21,19 @@ const SPREADSHEET_ID = "1j13YCBZhYIhv24o5cVxQIwFUs6ewaazlkHpiRGfysyc";
 const SHEET_GID = 0; // the tab from "#gid=0" in the sheet URL (the first tab)
 const TIME_ZONE = "Asia/Kolkata";
 
-// [field sent by /api/booking, header shown in the sheet]
+// [field sent by /api/booking, header written to an empty sheet, other headers that also map to it]
+// Headers are matched ignoring case, spaces and punctuation, so "Phone-Number" matches "Phone number".
 const COLUMNS = [
-  ["submittedAt", "Submitted at (IST)"],
-  ["name", "Name"],
-  ["phone", "Phone"],
-  ["email", "Email"],
-  ["occasion", "Occasion"],
-  ["eventDate", "Event date"],
-  ["location", "Venue / area"],
-  ["packageName", "Package"],
-  ["query", "Notes"],
-  ["source", "Source"],
+  ["submittedAt", "Submitted at (IST)", ["Date", "Submitted at", "Submitted on", "Timestamp"]],
+  ["name", "Name", ["Full name", "Customer name"]],
+  ["phone", "Phone", ["Phone number", "Mobile", "Mobile number", "Contact", "Contact number"]],
+  ["email", "Email", ["Email address", "Email ID"]],
+  ["occasion", "Occasion", ["Event", "Event type"]],
+  ["eventDate", "Event date", ["Date of event", "Booking date"]],
+  ["location", "Venue / area", ["Location", "Venue", "Area", "Address"]],
+  ["packageName", "Package", ["Package name"]],
+  ["query", "Notes", ["Query", "Message", "Comments", "Anything else"]],
+  ["source", "Source", []],
 ];
 
 function doPost(e) {
@@ -59,8 +60,8 @@ function doPost(e) {
     // Fill columns by their header text, so columns can be reordered and extra ones
     // (e.g. "Status", "Called?") added by hand; unknown headers are left blank.
     const keyByHeader = Object.create(null);
-    COLUMNS.forEach((c) => (keyByHeader[c[1]] = c[0]));
-    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0].map(String);
+    COLUMNS.forEach((c) => [c[1]].concat(c[2]).forEach((h) => (keyByHeader[headerKey(h)] = c[0])));
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0].map(headerKey);
     const row = headers.some((h) => h in keyByHeader)
       ? headers.map((h) => (h in keyByHeader ? cell(data[keyByHeader[h]]) : ""))
       : COLUMNS.map((c) => cell(data[c[0]]));
@@ -74,6 +75,11 @@ function doPost(e) {
 function getSheet() {
   const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   return ss.getSheets().find((s) => s.getSheetId() === SHEET_GID) || ss.getSheets()[0];
+}
+
+// "Phone-Number", "phone number" and "Phone Number " all become "phonenumber".
+function headerKey(h) {
+  return String(h).toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
 // Prefix with ' so values like "=..." are stored as text, never as formulas.
