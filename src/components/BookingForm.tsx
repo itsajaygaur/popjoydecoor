@@ -22,7 +22,7 @@ type Status =
   | { kind: "failed"; booking: BookingInput };
 
 const field =
-  "mt-1.5 block w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-base text-ink placeholder:text-ink-soft/60 focus:border-teal focus:outline-none aria-[invalid=true]:border-coral-deep";
+  "mt-1.5 block w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-base text-ink placeholder:text-ink-soft/60 focus:border-brand-light focus:outline-none aria-[invalid=true]:border-brand";
 const labelCls = "block text-sm font-semibold text-ink";
 
 function todayISO() {
@@ -109,7 +109,7 @@ export function BookingForm() {
 
   const err = (k: keyof BookingInput) =>
     errors[k] ? (
-      <p id={`${k}-error`} className="mt-1 text-sm text-coral-deep">
+      <p id={`${k}-error`} className="mt-1 text-sm text-brand">
         {errors[k]}
       </p>
     ) : null;
@@ -126,7 +126,7 @@ export function BookingForm() {
       className="relative rounded-3xl bg-white p-5 shadow-sm ring-1 ring-ink/5 sm:p-8"
     >
       {packageName && (
-        <div className="mb-5 flex items-center justify-between gap-3 rounded-xl bg-sun-soft px-4 py-3 text-sm">
+        <div className="mb-5 flex items-center justify-between gap-3 rounded-xl bg-accent-soft px-4 py-3 text-sm">
           <span>
             Selected: <strong>{packageName}</strong>
           </span>

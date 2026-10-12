@@ -3,7 +3,7 @@ import { eyebrow, sectionTitle } from "./ui";
 
 export function BookingSteps() {
   return (
-    <section id="how-it-works" aria-labelledby="steps-title" className="bg-sun-soft py-16 sm:py-20">
+    <section id="how-it-works" aria-labelledby="steps-title" className="bg-accent-soft py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4">
         <p className={eyebrow}>How it works</p>
         <h2 id="steps-title" className={`${sectionTitle} mt-2`}>
@@ -14,7 +14,7 @@ export function BookingSteps() {
             <li key={step.title} className="flex gap-4">
               <span
                 aria-hidden="true"
-                className="grid size-12 shrink-0 place-items-center rounded-full bg-white font-display text-xl font-semibold text-coral-deep shadow-sm ring-1 ring-ink/5"
+                className="grid size-12 shrink-0 place-items-center rounded-full bg-white font-display text-xl font-semibold text-brand shadow-sm ring-1 ring-ink/5"
               >
                 {i + 1}
               </span>

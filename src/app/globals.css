@@ -1,17 +1,16 @@
 @import "tailwindcss";
 
-/* Brand palette pulled from the Pop Joy Decoor logo (coral, sun, teal balloons). */
+/* Brand palette taken from the live site's Elementor globals: purple #6E0695 is the
+   page's button/card colour, plum #351D58 the global primary, orange #FF961A the accent. */
 @theme {
-  --color-cream: #fff8f1;
-  --color-blush: #fde9e4;
-  --color-ink: #2a1d2f;
-  --color-ink-soft: #5c4d60;
-  --color-coral: #e8604f;
-  --color-coral-deep: #b23826;
-  --color-sun: #f5b63e;
-  --color-sun-soft: #fdf0d2;
-  --color-teal: #3da7b9;
-  --color-teal-deep: #1f6f7d;
+  --color-cream: #fff8f0;
+  --color-lilac: #f4eaf8;
+  --color-ink: #351d58;
+  --color-ink-soft: #5f4f70;
+  --color-brand: #6e0695;
+  --color-brand-light: #833ca3;
+  --color-accent: #ff961a;
+  --color-accent-soft: #fff1e0;
   --color-whatsapp: #157a3f;
   --color-whatsapp-deep: #0f5e30;
 
@@ -34,7 +33,7 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-teal);
+  outline: 3px solid var(--color-brand-light);
   outline-offset: 2px;
 }
 

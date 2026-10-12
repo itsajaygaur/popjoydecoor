@@ -29,11 +29,11 @@ export function ServiceAreas() {
               key={area}
               className="flex items-center gap-2 rounded-2xl bg-white px-4 py-4 font-semibold text-ink shadow-sm ring-1 ring-ink/5"
             >
-              <MapPinIcon className="size-5 text-coral" />
+              <MapPinIcon className="size-5 text-brand-light" />
               {area}
             </li>
           ))}
-          <li className="flex items-center rounded-2xl bg-teal/10 px-4 py-4 text-sm font-medium text-teal-deep">
+          <li className="flex items-center rounded-2xl bg-brand/10 px-4 py-4 text-sm font-medium text-brand">
             + nearby areas on request
           </li>
         </ul>

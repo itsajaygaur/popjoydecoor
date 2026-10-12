@@ -17,12 +17,12 @@ export function Testimonials() {
               className="w-[82%] shrink-0 snap-start rounded-2xl bg-white p-6 shadow-sm ring-1 ring-ink/5 sm:w-[60%] md:w-auto"
             >
               <figure className="flex h-full flex-col">
-                <div className="flex text-sun" role="img" aria-label="5 out of 5 stars">
+                <div className="flex text-accent" role="img" aria-label="5 out of 5 stars">
                   {Array.from({ length: 5 }, (_, s) => <StarIcon key={s} />)}
                 </div>
                 <blockquote className="mt-3 flex-1 leading-relaxed text-ink-soft">“{r.text}”</blockquote>
                 <figcaption className="mt-4 flex items-center gap-3">
-                  <span aria-hidden="true" className="grid size-9 place-items-center rounded-full bg-teal/15 font-semibold text-teal-deep">
+                  <span aria-hidden="true" className="grid size-9 place-items-center rounded-full bg-brand/10 font-semibold text-brand">
                     {r.name.replace("Dr. ", "")[0]}
                   </span>
                   <span>

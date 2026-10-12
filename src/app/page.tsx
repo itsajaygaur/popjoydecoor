@@ -17,7 +17,7 @@ export default function Home() {
         <p className="mt-3 text-ink-soft">The rest of the site is being migrated.</p>
         <Link
           href={LANDING_PATH}
-          className="mt-6 inline-block rounded-full bg-coral-deep px-6 py-3 font-semibold text-white"
+          className="mt-6 inline-block rounded-full bg-brand px-6 py-3 font-semibold text-white"
         >
           Balloon Decoration in Delhi NCR →
         </Link>
