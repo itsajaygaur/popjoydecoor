@@ -166,12 +166,13 @@ function PackageCard({ pkg, eager }: { pkg: Package; eager: boolean }) {
           {priceText}
           {pkg.price ? <span aria-hidden="true">*</span> : null}
         </p>
-        <div className="mt-auto grid gap-2 pt-3 sm:grid-cols-2">
+        {/* Side by side when both fit, stacked otherwise: narrow 4-up cards can't fit icon + label in half the width. */}
+        <div className="mt-auto flex flex-wrap gap-2 pt-3">
           <a
             href={whatsappLink(message)}
             target="_blank"
             rel="noopener"
-            className={`${btn.base} ${btn.whatsapp} ${btn.sm}`}
+            className={`${btn.base} ${btn.whatsapp} ${btn.sm} min-w-fit grow basis-0`}
             aria-label={`Book ${pkg.title} on WhatsApp`}
           >
             <WhatsAppIcon className="size-4" />
@@ -180,7 +181,7 @@ function PackageCard({ pkg, eager }: { pkg: Package; eager: boolean }) {
           <button
             type="button"
             onClick={() => bookPackage(pkg)}
-            className={`${btn.base} ${btn.ghost} ${btn.sm}`}
+            className={`${btn.base} ${btn.ghost} ${btn.sm} min-w-fit grow basis-0`}
             aria-label={`Book ${pkg.title} with the booking form`}
           >
             Book now
