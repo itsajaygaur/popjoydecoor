@@ -38,7 +38,10 @@ export function Hero() {
           </div>
 
           <p className="mt-5 text-sm text-ink-soft">
-            Starting at <strong className="text-ink">{formatPrice(STARTING_PRICE)}</strong> · Just ₹500 advance to book ·
+            Starting at <strong className="text-ink">
+              {formatPrice(STARTING_PRICE)}
+              <span aria-hidden="true">*</span>
+            </strong> · Just ₹500 advance to book ·
             Pay the rest after setup
           </p>
         </div>

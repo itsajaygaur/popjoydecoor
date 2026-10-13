@@ -32,7 +32,7 @@ function bookPackage(p: Package) {
 }
 
 export function PackageCatalog() {
-  const [occasion, setOccasion] = useState<Occasion>("birthday");
+  const [occasion, setOccasion] = useState<Occasion>(OCCASIONS[0].id);
   const [type, setType] = useState<DecorType | "all">("all");
   const [sort, setSort] = useState<Sort>("featured");
   const [visible, setVisible] = useState(PAGE_SIZE);
@@ -164,6 +164,7 @@ function PackageCard({ pkg, eager }: { pkg: Package; eager: boolean }) {
         <h3 className="text-sm leading-snug font-semibold text-ink sm:text-base">{pkg.title}</h3>
         <p className={`mt-1 font-display font-semibold ${pkg.price ? "text-xl text-brand" : "text-base text-ink-soft"}`}>
           {priceText}
+          {pkg.price ? <span aria-hidden="true">*</span> : null}
         </p>
         <div className="mt-auto grid gap-2 pt-3 sm:grid-cols-2">
           <a
