@@ -33,7 +33,9 @@ If the webhook isn't configured or fails, the form falls back to WhatsApp, so no
 Rows go to the first tab of the
 [bookings sheet](https://docs.google.com/spreadsheets/d/1j13YCBZhYIhv24o5cVxQIwFUs6ewaazlkHpiRGfysyc/edit)
 (`SPREADSHEET_ID` / `SHEET_GID` in the script). On an empty tab the script writes a header row first; after
-that it fills columns by header name, so you can reorder them or add your own (e.g. "Status").
+that it fills columns by header name, so you can reorder them or add your own (e.g. "Status"). Any field the
+sheet has no column for — like "Package", the item picked via a card's "Book now" — is added as a new column
+at the end on the next booking.
 
 1. Open the bookings Google Sheet → **Extensions → Apps Script**, paste `scripts/google-apps-script.gs`.
 2. Set `SECRET` in the script to a long random string.
