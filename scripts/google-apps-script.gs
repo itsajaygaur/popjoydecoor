@@ -31,7 +31,7 @@ const COLUMNS = [
   ["occasion", "Occasion", ["Event", "Event type"]],
   ["eventDate", "Event date", ["Date of event", "Booking date"]],
   ["location", "Venue / area", ["Location", "Venue", "Area", "Address"]],
-  ["packageName", "Package", ["Package name"]],
+  ["packageName", "Package", ["Package name", "Selected package", "Item", "Selected item", "Product", "Decoration"]],
   ["query", "Notes", ["Query", "Message", "Comments", "Anything else"]],
   ["source", "Source", []],
 ];
@@ -61,10 +61,23 @@ function doPost(e) {
     // (e.g. "Status", "Called?") added by hand; unknown headers are left blank.
     const keyByHeader = Object.create(null);
     COLUMNS.forEach((c) => [c[1]].concat(c[2]).forEach((h) => (keyByHeader[headerKey(h)] = c[0])));
-    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0].map(headerKey);
-    const row = headers.some((h) => h in keyByHeader)
-      ? headers.map((h) => (h in keyByHeader ? cell(data[keyByHeader[h]]) : ""))
-      : COLUMNS.map((c) => cell(data[c[0]]));
+    let headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0].map(headerKey);
+    let row;
+    if (headers.some((h) => h in keyByHeader)) {
+      // A field with no matching header (e.g. "Package" on a hand-made sheet) gets a new column
+      // at the end instead of being silently dropped.
+      const missing = COLUMNS.filter((c) => !headers.some((h) => keyByHeader[h] === c[0]));
+      if (missing.length) {
+        sheet
+          .getRange(1, sheet.getLastColumn() + 1, 1, missing.length)
+          .setValues([missing.map((c) => c[1])])
+          .setFontWeight("bold");
+        headers = headers.concat(missing.map((c) => headerKey(c[1])));
+      }
+      row = headers.map((h) => (h in keyByHeader ? cell(data[keyByHeader[h]]) : ""));
+    } else {
+      row = COLUMNS.map((c) => cell(data[c[0]]));
+    }
     sheet.appendRow(row);
   } finally {
     lock.releaseLock();
