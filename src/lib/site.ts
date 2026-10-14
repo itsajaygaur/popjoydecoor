@@ -9,3 +9,4 @@ export const SITE = {
 } as const;
 
 export const LANDING_PATH = "/ballon-decoration-in-delhi-ncr/";
+export const THANK_YOU_PATH = "/thank-you/";

@@ -19,6 +19,8 @@ npm run lint && npm run build
 | Phone / WhatsApp number, service areas | `src/lib/site.ts` |
 | Page, SEO title/description, JSON-LD | `src/app/ballon-decoration-in-delhi-ncr/page.tsx` |
 | Booking API (form → Google Sheet) | `src/app/api/booking/route.ts` |
+| Thank-you page (form redirects here on success; GTM conversion URL `/thank-you/`) | `src/app/thank-you/page.tsx` |
+| Google Tag Manager (`GTM-NJZWLBSH`, on every page) | `src/app/layout.tsx` |
 | Brand colours & fonts | `src/app/globals.css`, `src/app/layout.tsx` |
 
 To add a package, drop a `.webp` into `public/images/packages/<occasion>/` and add a line to `PACKAGES`.
@@ -27,8 +29,9 @@ To add a package, drop a `.webp` into `public/images/packages/<occasion>/` and a
 ## Booking form → Google Sheets
 
 The form posts to `/api/booking`, which forwards to a Google Apps Script web app that appends a row to
-your Sheet. After submitting, the customer is offered "Continue on WhatsApp" with their details pre-filled.
-If the webhook isn't configured or fails, the form falls back to WhatsApp, so no lead is lost.
+your Sheet. After a successful submit the customer is sent to `/thank-you/` (a full page load, so GTM's Page View
+trigger fires there), which offers "Continue on WhatsApp" with their details pre-filled. If the webhook isn't
+configured or fails, the form stays put and falls back to WhatsApp, so no lead is lost — and no false conversion.
 
 Rows go to the first tab of the
 [bookings sheet](https://docs.google.com/spreadsheets/d/1j13YCBZhYIhv24o5cVxQIwFUs6ewaazlkHpiRGfysyc/edit)

@@ -4,6 +4,9 @@
 export const BOOK_EVENT = "popjoy:book";
 export type BookEventDetail = { packageName: string; occasion: string };
 
+/** sessionStorage key: the booking's WhatsApp message, handed from the form to the thank-you page. */
+export const LAST_BOOKING_KEY = "popjoy:lastBooking";
+
 export const OCCASION_OPTIONS = [
   "Birthday Decoration",
   "Anniversary Decoration",
