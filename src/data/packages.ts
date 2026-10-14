@@ -1,7 +1,8 @@
 // Package catalog for the balloon-decoration landing page.
-// Adult-birthday & anniversary photos come from the 2026 product shoot; kids-birthday photos
-// and prices from the client's "Kids Bday" folder (price = file name); baby shower and
-// welcome-baby photos/prices were carried over from the previous WordPress page.
+// Adult-birthday & anniversary photos come from the 2026 product shoot; kids-birthday, baby shower
+// and welcome-baby photos and prices from the client's folders (price = file name; the baby-shower
+// "Panel" folder is listed as Theme Setup). A few baby shower / welcome-baby photos were carried over
+// from the previous WordPress page.
 // `price: null` renders as "Price on request".
 
 export type Occasion = "kids-birthday" | "adult-birthday" | "anniversary" | "baby-shower" | "welcome-baby";
@@ -123,16 +124,52 @@ export const PACKAGES: Package[] = [
   { id: "anniversary-backdrop-white-silver", occasion: "anniversary", type: "flex", title: "White & Silver Arch Backdrop", price: null, image: "/images/packages/anniversary/backdrop-white-silver.webp", width: 401, height: 621 },
   { id: "anniversary-room-balloons", occasion: "anniversary", type: "wall", title: "Room Balloon Decoration", price: 1999, image: "/images/packages/anniversary/room-balloons.webp", width: 401, height: 621 },
   { id: "anniversary-wall-red-lights", occasion: "anniversary", type: "wall", title: "Red Fairy-Light Wall", price: 1999, image: "/images/packages/anniversary/wall-red-lights.webp", width: 401, height: 621 },
-  { id: "baby-shower-ring-pastel-teddy", occasion: "baby-shower", type: "ring", title: "Pastel Ring with Teddy", price: 3999, image: "/images/packages/baby-shower/ring-pastel-teddy.webp", width: 1024, height: 1024 },
-  { id: "baby-shower-ring-lilac-white", occasion: "baby-shower", type: "ring", title: "Lilac & White Ring", price: 3999, image: "/images/packages/baby-shower/ring-lilac-white.webp", width: 1024, height: 1024 },
-  { id: "baby-shower-wall-pastel-lights", occasion: "baby-shower", type: "wall", title: "Pastel Fairy-Light Wall", price: 4499, image: "/images/packages/baby-shower/wall-pastel-lights.webp", width: 1024, height: 1024 },
+  { id: "baby-shower-ring-pink-purple", occasion: "baby-shower", type: "ring", title: "Pink & Purple Ring", price: 2999, image: "/images/packages/baby-shower/ring-pink-purple.webp", width: 563, height: 1000 },
+  { id: "baby-shower-ring-green-gold-neon", occasion: "baby-shower", type: "ring", title: "Green & Gold Oh Baby Neon Ring", price: 3499, image: "/images/packages/baby-shower/ring-green-gold-neon.webp", width: 750, height: 1000 },
+  { id: "baby-shower-ring-pink-blue-neon", occasion: "baby-shower", type: "ring", title: "Pink & Blue Neon Ring", price: 3499, image: "/images/packages/baby-shower/ring-pink-blue-neon.webp", width: 540, height: 720 },
+  { id: "baby-shower-ring-pastel-teddy", occasion: "baby-shower", type: "ring", title: "Pastel Ring with Teddy", price: 3999, image: "/images/packages/baby-shower/ring-pastel-teddy.webp", width: 800, height: 602 },
+  { id: "baby-shower-ring-lilac-white", occasion: "baby-shower", type: "ring", title: "Lilac & White Ring", price: 3999, image: "/images/packages/baby-shower/ring-lilac-white.webp", width: 800, height: 600 },
+  { id: "baby-shower-ring-blue-silver-wisteria", occasion: "baby-shower", type: "ring", title: "Blue & Silver Ring with Wisteria", price: 3999, image: "/images/packages/baby-shower/ring-blue-silver-wisteria.webp", width: 800, height: 810 },
+  { id: "baby-shower-ring-green-gold-lights", occasion: "baby-shower", type: "ring", title: "Green & Gold Half Ring with Fairy Lights", price: 3999, image: "/images/packages/baby-shower/ring-green-gold-lights.webp", width: 750, height: 1000 },
+  { id: "baby-shower-ring-pink-blue-baby-shower", occasion: "baby-shower", type: "ring", title: "Pink & Blue Baby Shower Neon Ring", price: 4499, image: "/images/packages/baby-shower/ring-pink-blue-baby-shower.webp", width: 800, height: 616 },
+  { id: "baby-shower-backdrop-mother-krishna", occasion: "baby-shower", type: "flex", title: "Mother & Baby Krishna Backdrop", price: 3999, image: "/images/packages/baby-shower/backdrop-mother-krishna.webp", width: 750, height: 1000 },
+  { id: "baby-shower-backdrop-lavender-name", occasion: "baby-shower", type: "flex", title: "Lavender Name Backdrop", price: 3999, image: "/images/packages/baby-shower/backdrop-lavender-name.webp", width: 750, height: 1000 },
+  { id: "baby-shower-backdrop-baby-in-bloom", occasion: "baby-shower", type: "flex", title: "Baby in Bloom Teddy Backdrop", price: 3999, image: "/images/packages/baby-shower/backdrop-baby-in-bloom.webp", width: 800, height: 943 },
+  { id: "baby-shower-backdrop-little-sunshine", occasion: "baby-shower", type: "flex", title: "Little Sunshine Green & Yellow Backdrop", price: 4999, image: "/images/packages/baby-shower/backdrop-little-sunshine.webp", width: 750, height: 1000 },
+  { id: "baby-shower-backdrop-oh-baby-teddy", occasion: "baby-shower", type: "flex", title: "Oh Baby Neon Backdrop with Teddy", price: 5549, image: "/images/packages/baby-shower/backdrop-oh-baby-teddy.webp", width: 800, height: 950 },
+  { id: "baby-shower-backdrop-bearly-wait", occasion: "baby-shower", type: "flex", title: "We Can Bearly Wait Backdrop", price: 5999, image: "/images/packages/baby-shower/backdrop-bearly-wait.webp", width: 750, height: 1000 },
   { id: "baby-shower-backdrop-mama-to-be", occasion: "baby-shower", type: "flex", title: "Mama-to-Be Floral Backdrop", price: 6599, image: "/images/packages/baby-shower/backdrop-mama-to-be.webp", width: 1024, height: 1024 },
-  { id: "baby-shower-ring-pink-purple", occasion: "baby-shower", type: "ring", title: "Pink & Purple Ring", price: 2999, image: "/images/packages/baby-shower/ring-pink-purple.webp", width: 1024, height: 1024 },
-  { id: "welcome-baby-wall-baby-boy", occasion: "welcome-baby", type: "wall", title: "Welcome Baby Boy Foil Wall", price: 1999, image: "/images/packages/welcome-baby/wall-baby-boy.webp", width: 1024, height: 1024 },
-  { id: "welcome-baby-ring-blue-silver", occasion: "welcome-baby", type: "ring", title: "Blue & Silver Welcome Ring", price: 3999, image: "/images/packages/welcome-baby/ring-blue-silver.webp", width: 1024, height: 1024 },
+  { id: "baby-shower-wall-foil-letters", occasion: "baby-shower", type: "wall", title: "Baby Shower Foil Letter Wall", price: 1899, image: "/images/packages/baby-shower/wall-foil-letters.webp", width: 750, height: 1000 },
+  { id: "baby-shower-wall-oh-baby-lights", occasion: "baby-shower", type: "wall", title: "Oh Baby Fairy-Light Wall", price: 1999, image: "/images/packages/baby-shower/wall-oh-baby-lights.webp", width: 750, height: 1000 },
+  { id: "baby-shower-wall-pram-lights", occasion: "baby-shower", type: "wall", title: "Pram Fairy-Light Wall with Names", price: 2599, image: "/images/packages/baby-shower/wall-pram-lights.webp", width: 800, height: 880 },
+  { id: "baby-shower-wall-pink-blue-curtain", occasion: "baby-shower", type: "wall", title: "Pink & Blue Curtain Wall", price: 2599, image: "/images/packages/baby-shower/wall-pink-blue-curtain.webp", width: 800, height: 800 },
+  { id: "baby-shower-wall-pink-butterfly-lights", occasion: "baby-shower", type: "wall", title: "Pink Butterfly Fairy-Light Wall", price: 2599, image: "/images/packages/baby-shower/wall-pink-butterfly-lights.webp", width: 800, height: 754 },
+  { id: "baby-shower-wall-pastel-lights", occasion: "baby-shower", type: "wall", title: "Pastel Fairy-Light Wall", price: 4499, image: "/images/packages/baby-shower/wall-pastel-lights.webp", width: 1024, height: 1024 },
+  { id: "baby-shower-theme-little-sweetheart", occasion: "baby-shower", type: "theme", title: "Little Sweetheart Green & Gold Setup", price: 10999, image: "/images/packages/baby-shower/theme-little-sweetheart.webp", width: 800, height: 761 },
+  { id: "baby-shower-theme-oh-baby-pastel", occasion: "baby-shower", type: "theme", title: "Oh Baby Pastel Panel Setup", price: 17999, image: "/images/packages/baby-shower/theme-oh-baby-pastel.webp", width: 639, height: 585 },
+  { id: "baby-shower-theme-bearly-wait-teddy", occasion: "baby-shower", type: "theme", title: "Bearly Wait Teddy Panel Setup", price: 17999, image: "/images/packages/baby-shower/theme-bearly-wait-teddy.webp", width: 800, height: 575 },
+  { id: "baby-shower-theme-oh-baby-boho", occasion: "baby-shower", type: "theme", title: "Boho Oh Baby Panel Setup", price: 19999, image: "/images/packages/baby-shower/theme-oh-baby-boho.webp", width: 800, height: 570 },
+  { id: "welcome-baby-ring-blue-silver-curtain", occasion: "welcome-baby", type: "ring", title: "Blue & Silver Welcome Ring with Curtain", price: 2999, image: "/images/packages/welcome-baby/ring-blue-silver-curtain.webp", width: 800, height: 756 },
+  { id: "welcome-baby-ring-blue-gold", occasion: "welcome-baby", type: "ring", title: "Blue & Gold Welcome Ring", price: 3499, image: "/images/packages/welcome-baby/ring-blue-gold.webp", width: 750, height: 1000 },
+  { id: "welcome-baby-ring-pink-white-neon", occasion: "welcome-baby", type: "ring", title: "Pink & White Welcome Baby Neon Ring", price: 3499, image: "/images/packages/welcome-baby/ring-pink-white-neon.webp", width: 750, height: 1000 },
+  { id: "welcome-baby-ring-welcome-letters", occasion: "welcome-baby", type: "ring", title: "Welcome Baby Letter Ring", price: 3499, image: "/images/packages/welcome-baby/ring-welcome-letters.webp", width: 800, height: 934 },
+  { id: "welcome-baby-ring-chrome-pink", occasion: "welcome-baby", type: "ring", title: "Chrome & Pink Welcome Ring", price: 3499, image: "/images/packages/welcome-baby/ring-chrome-pink.webp", width: 750, height: 1000 },
+  { id: "welcome-baby-ring-blue-silver", occasion: "welcome-baby", type: "ring", title: "Blue & Silver Welcome Ring", price: 3999, image: "/images/packages/welcome-baby/ring-blue-silver.webp", width: 800, height: 921 },
   { id: "welcome-baby-ring-orange-white", occasion: "welcome-baby", type: "ring", title: "Orange & White Welcome Ring", price: 3999, image: "/images/packages/welcome-baby/ring-orange-white.webp", width: 1024, height: 1024 },
-  { id: "welcome-baby-ring-pastel", occasion: "welcome-baby", type: "ring", title: "Pastel Welcome Baby Ring", price: 4499, image: "/images/packages/welcome-baby/ring-pastel.webp", width: 1024, height: 1024 },
-  { id: "welcome-baby-wall-pastel-lights", occasion: "welcome-baby", type: "wall", title: "Pastel Baby Fairy-Light Wall", price: 2499, image: "/images/packages/welcome-baby/wall-pastel-lights.webp", width: 1024, height: 1024 },
+  { id: "welcome-baby-ring-pastel", occasion: "welcome-baby", type: "ring", title: "Pastel Welcome Baby Ring", price: 3999, image: "/images/packages/welcome-baby/ring-pastel.webp", width: 800, height: 962 },
+  { id: "welcome-baby-backdrop-baby-boy-blue", occasion: "welcome-baby", type: "flex", title: "Welcome Baby Boy Blue Backdrop", price: 4499, image: "/images/packages/welcome-baby/backdrop-baby-boy-blue.webp", width: 800, height: 600 },
+  { id: "welcome-baby-backdrop-rainbow-photo", occasion: "welcome-baby", type: "flex", title: "Rainbow Photo Backdrop with Name", price: 4999, image: "/images/packages/welcome-baby/backdrop-rainbow-photo.webp", width: 720, height: 625 },
+  { id: "welcome-baby-backdrop-blue-gold-boy", occasion: "welcome-baby", type: "flex", title: "Blue & Gold Welcome Boy Backdrop", price: 5999, image: "/images/packages/welcome-baby/backdrop-blue-gold-boy.webp", width: 750, height: 1000 },
+  { id: "welcome-baby-wall-baby-boy", occasion: "welcome-baby", type: "wall", title: "Welcome Baby Boy Foil Wall", price: 1999, image: "/images/packages/welcome-baby/wall-baby-boy.webp", width: 1024, height: 1024 },
+  { id: "welcome-baby-wall-pink-silver-curtain", occasion: "welcome-baby", type: "wall", title: "Pink & Silver Curtain Wall", price: 1999, image: "/images/packages/welcome-baby/wall-pink-silver-curtain.webp", width: 714, height: 1000 },
+  { id: "welcome-baby-wall-pink-arch", occasion: "welcome-baby", type: "wall", title: "Pink Welcome Baby Arch Wall", price: 1999, image: "/images/packages/welcome-baby/wall-pink-arch.webp", width: 750, height: 1000 },
+  { id: "welcome-baby-wall-baby-girl-lights", occasion: "welcome-baby", type: "wall", title: "Baby Girl Fairy-Light Wall", price: 2199, image: "/images/packages/welcome-baby/wall-baby-girl-lights.webp", width: 773, height: 1000 },
+  { id: "welcome-baby-wall-blue-curtain", occasion: "welcome-baby", type: "wall", title: "Blue Welcome Baby Curtain Wall", price: 2199, image: "/images/packages/welcome-baby/wall-blue-curtain.webp", width: 800, height: 732 },
+  { id: "welcome-baby-wall-blue-gold", occasion: "welcome-baby", type: "wall", title: "Blue & Gold Welcome Baby Wall", price: 2199, image: "/images/packages/welcome-baby/wall-blue-gold.webp", width: 800, height: 559 },
+  { id: "welcome-baby-wall-pink-purple-curtain", occasion: "welcome-baby", type: "wall", title: "Pink & Purple Curtain Wall", price: 2299, image: "/images/packages/welcome-baby/wall-pink-purple-curtain.webp", width: 800, height: 786 },
+  { id: "welcome-baby-wall-baby-boy-room", occasion: "welcome-baby", type: "wall", title: "Blue Baby Boy Room Decoration", price: 2299, image: "/images/packages/welcome-baby/wall-baby-boy-room.webp", width: 800, height: 600 },
+  { id: "welcome-baby-wall-pastel-lights", occasion: "welcome-baby", type: "wall", title: "Pastel Baby Fairy-Light Wall", price: 2499, image: "/images/packages/welcome-baby/wall-pastel-lights.webp", width: 750, height: 1000 },
+  { id: "welcome-baby-wall-pink-chrome-lights", occasion: "welcome-baby", type: "wall", title: "Pink & Chrome Fairy-Light Wall", price: 2499, image: "/images/packages/welcome-baby/wall-pink-chrome-lights.webp", width: 800, height: 886 },
 ];
 
 export const STARTING_PRICE = Math.min(

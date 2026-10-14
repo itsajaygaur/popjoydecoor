@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   BOOK_EVENT,
+  LAST_BOOKING_KEY,
   OCCASION_OPTIONS,
   bookingWhatsappMessage,
   normalizeBooking,
@@ -11,6 +12,7 @@ import {
   type BookingErrors,
   type BookingInput,
 } from "@/lib/booking";
+import { THANK_YOU_PATH } from "@/lib/site";
 import { whatsappLink } from "@/lib/whatsapp";
 import { WhatsAppIcon } from "./icons";
 import { btn } from "./ui";
@@ -18,7 +20,6 @@ import { btn } from "./ui";
 type Status =
   | { kind: "idle" }
   | { kind: "submitting" }
-  | { kind: "sent"; booking: BookingInput }
   | { kind: "failed"; booking: BookingInput };
 
 const field =
@@ -46,8 +47,16 @@ export function BookingForm() {
       setStatus({ kind: "idle" });
       formRef.current?.querySelector<HTMLInputElement>("input[name=name]")?.focus({ preventScroll: true });
     };
+    // Back from the thank-you page can restore this page from the back/forward cache mid-"Sending…".
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) setStatus({ kind: "idle" });
+    };
     window.addEventListener(BOOK_EVENT, onBook);
-    return () => window.removeEventListener(BOOK_EVENT, onBook);
+    window.addEventListener("pageshow", onPageShow);
+    return () => {
+      window.removeEventListener(BOOK_EVENT, onBook);
+      window.removeEventListener("pageshow", onPageShow);
+    };
   }, []);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -69,23 +78,30 @@ export function BookingForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, ...booking }),
       });
-      setStatus(res.ok ? { kind: "sent", booking } : { kind: "failed", booking });
+      if (!res.ok) {
+        setStatus({ kind: "failed", booking });
+        return;
+      }
     } catch {
       setStatus({ kind: "failed", booking });
+      return;
     }
+
+    try {
+      sessionStorage.setItem(LAST_BOOKING_KEY, bookingWhatsappMessage(booking));
+    } catch {
+      // Storage blocked: the thank-you page falls back to a generic WhatsApp message.
+    }
+    // A full page load (not router.push) so GTM's Page View trigger fires on the thank-you page.
+    window.location.assign(THANK_YOU_PATH);
   }
 
-  if (status.kind === "sent" || status.kind === "failed") {
-    const sent = status.kind === "sent";
+  if (status.kind === "failed") {
     return (
       <div role="status" className="rounded-3xl bg-white p-6 text-center shadow-sm ring-1 ring-ink/5 sm:p-10">
-        <p className="font-display text-2xl font-semibold text-ink">
-          {sent ? "Thank you! We've got your request 🎈" : "Almost there — please send it on WhatsApp"}
-        </p>
+        <p className="font-display text-2xl font-semibold text-ink">Almost there — please send it on WhatsApp</p>
         <p className="mx-auto mt-3 max-w-md text-ink-soft">
-          {sent
-            ? "Our team will call or WhatsApp you shortly to confirm availability. For the fastest confirmation, send your details on WhatsApp now."
-            : "We couldn't submit the form just now. Tap below to send the same details to us on WhatsApp — it takes one tap."}
+          We couldn&apos;t submit the form just now. Tap below to send the same details to us on WhatsApp — it takes one tap.
         </p>
         <a
           href={whatsappLink(bookingWhatsappMessage(status.booking))}

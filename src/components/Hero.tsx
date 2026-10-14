@@ -22,15 +22,16 @@ export function Hero() {
             venue across {SITE.areas.slice(0, -1).join(", ")} and {SITE.areas.at(-1)}. Same-day slots available.
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            <a href="#packages" className={`${btn.base} ${btn.primary} ${btn.lg} w-full sm:w-auto`}>
+          {/* Hidden on phones, where the sticky bottom bar already carries Book now / WhatsApp. */}
+          <div className="mt-7 hidden flex-wrap items-center gap-3 md:flex">
+            <a href="#packages" className={`${btn.base} ${btn.primary} ${btn.lg}`}>
               View packages
             </a>
             <a
               href={whatsappLink("Hi, I'd like to book a balloon decoration.")}
               target="_blank"
               rel="noopener"
-              className={`${btn.base} ${btn.whatsapp} ${btn.lg} w-full sm:w-auto`}
+              className={`${btn.base} ${btn.whatsapp} ${btn.lg}`}
             >
               <WhatsAppIcon />
               Book on WhatsApp
