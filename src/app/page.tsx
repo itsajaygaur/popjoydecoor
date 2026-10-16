@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { LANDING_PATH, SITE } from "@/lib/site";
 
-// Placeholder until the rest of the WordPress site is migrated. Do not point the
-// production domain here before then — see README.
+// Unreachable for now: next.config.ts redirects "/" to LANDING_PATH (307) until
+// the rest of the WordPress site is migrated. Kept as the placeholder that
+// redirect falls back to if removed. Do not point the production domain here
+// before the migration — see README.
 export const metadata: Metadata = {
   title: SITE.name,
   robots: { index: false, follow: true },

@@ -6,7 +6,7 @@ Next.js 16 (App Router) + Tailwind CSS 4. This is the first route of the WordPre
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000/ballon-decoration-in-delhi-ncr/
+npm run dev        # http://localhost:3000 (redirects to the landing page)
 npm run lint && npm run build
 ```
 
@@ -54,5 +54,5 @@ saving alone doesn't change what the web app runs.
 
 Only this page exists here. The live site has ~30 other URLs (home, about, contact, city pages, shop,
 products — see `content/source-page.md`). Moving DNS now would 404 all of them. Until they're migrated
-or redirected, test on the Vercel preview URL (or proxy just this path to Vercel). The home page here
-is a `noindex` placeholder.
+or redirected, test on the Vercel preview URL (or proxy just this path to Vercel). `/` temporarily
+redirects (307) to the landing page; swap that for a real home page when one is migrated.

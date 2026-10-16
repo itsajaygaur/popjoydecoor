@@ -16,6 +16,14 @@ const nextConfig: NextConfig = {
         destination: "/ballon-decoration-in-delhi-ncr/",
         permanent: true,
       },
+      {
+        // Only the landing page exists so far, so send the placeholder root to it.
+        // Temporary on purpose: a real home page is still to be migrated, and a
+        // permanent redirect would be cached by browsers long after it ships.
+        source: "/",
+        destination: "/ballon-decoration-in-delhi-ncr/",
+        permanent: false,
+      },
     ];
   },
   turbopack: {
