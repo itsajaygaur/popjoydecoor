@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SITE } from "@/lib/site";
+import { LEGAL_LINKS, SITE } from "@/lib/site";
 import { whatsappLink } from "@/lib/whatsapp";
 
 export function Footer() {
@@ -32,9 +32,20 @@ export function Footer() {
           <p className="mt-3 text-sm">{SITE.areas.join(" · ")}</p>
         </div>
       </div>
-      <p className="mx-auto mt-10 max-w-6xl border-t border-cream/10 px-4 pt-6 text-xs text-cream/60">
-        © <CopyrightYear /> {SITE.name}. All rights reserved.
-      </p>
+      <div className="mx-auto mt-10 flex max-w-6xl flex-col gap-3 border-t border-cream/10 px-4 pt-6 text-xs text-cream/60 sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          © <CopyrightYear /> {SITE.name}. All rights reserved.
+        </p>
+        <nav aria-label="Legal">
+          <ul className="flex flex-wrap gap-x-5 gap-y-2">
+            {LEGAL_LINKS.map(({ label, href }) => (
+              <li key={href}>
+                <a href={href} className="hover:text-cream">{label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
     </footer>
   );
 }
